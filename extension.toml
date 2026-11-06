@@ -1,0 +1,9 @@
+id = "react-next-modern-snippets"
+name = "React + Next Modern Snippets"
+version = "0.0.1"
+schema_version = 1
+authors = ["Xansiety"]
+description = "Modern snippets for React and Next.js 15+ development"
+repository = "https://github.com/Xansiety/react-next-modern-snippets-zed"
+
+snippets = ["./snippets/snippets.json"]

@@ -1,0 +1,398 @@
+{
+  "Page Component": {
+    "prefix": "prc",
+    "description": "Next.js page component",
+    "body": [
+      "export default function ${1:ComponentName}() {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t<h1>$1</h1>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t);",
+      "}"
+    ]
+  },
+  "Page Component with Metadata": {
+    "prefix": "prcm",
+    "description": "Next.js page component with metadata export",
+    "body": [
+      "import type { Metadata } from \"next\";",
+      "",
+      "export const metadata: Metadata = {",
+      "\ttitle: \"${2:Title}\",",
+      "};",
+      "",
+      "export default function ${1:ComponentName}() {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t<h1>$1</h1>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t);",
+      "}"
+    ]
+  },
+  "Functional Component with React.FC and Props": {
+    "prefix": "prcfc",
+    "description": "React functional component with React.FC and Props type",
+    "body": [
+      "type Props = {",
+      "\t$2",
+      "};",
+      "",
+      "const ${1:ComponentName}: React.FC<Props> = ({$3}) => {",
+      "\treturn (",
+      "\t\t<div>$1$0</div>",
+      "\t);",
+      "};",
+      "",
+      "export default $1;"
+    ]
+  },
+  "Async Server Component": {
+    "prefix": "prca",
+    "description": "Next.js async server component for data fetching",
+    "body": [
+      "type Props = {",
+      "\t$2",
+      "};",
+      "",
+      "export default async function ${1:ComponentName}({}: Props) {",
+      "\treturn (",
+      "\t\t<div>$1$0</div>",
+      "\t);",
+      "}"
+    ]
+  },
+  "Custom Hook": {
+    "prefix": "prch",
+    "description": "React custom hook with useState and useEffect",
+    "body": [
+      "import { useState, useEffect } from \"react\";",
+      "",
+      "const use${1:HookName} = () => {",
+      "\tconst [state, setState] = useState(null);",
+      "",
+      "\tuseEffect(() => {",
+      "\t\t$2",
+      "\t}, []);",
+      "",
+      "\treturn { state };",
+      "};",
+      "",
+      "export default use$1;",
+      "$0"
+    ]
+  },
+  "Layout with Metadata": {
+    "prefix": "lmrc",
+    "description": "Next.js layout component with metadata export",
+    "body": [
+      "import type { Metadata } from \"next\";",
+      "",
+      "export const metadata: Metadata = {",
+      "\ttitle: \"${2:Title}\",",
+      "\tdescription: \"${3:Description}\",",
+      "};",
+      "",
+      "export default function ${1:ComponentName}Layout({",
+      "\tchildren,",
+      "}: Readonly<{",
+      "\tchildren: React.ReactNode;",
+      "}>) {",
+      "\treturn (",
+      "\t\t<>",
+      "\t\t\t{children}",
+      "\t\t\t$0",
+      "\t\t</>",
+      "\t);",
+      "}"
+    ]
+  },
+  "Layout without Metadata": {
+    "prefix": "lrc",
+    "description": "Next.js layout component without metadata",
+    "body": [
+      "export default function ${1:ComponentName}Layout({",
+      "\tchildren,",
+      "}: Readonly<{",
+      "\tchildren: React.ReactNode;",
+      "}>) {",
+      "\treturn (",
+      "\t\t<>",
+      "\t\t\t{children}",
+      "\t\t\t$0",
+      "\t\t</>",
+      "\t);",
+      "}"
+    ]
+  },
+  "Client Component": {
+    "prefix": "crc",
+    "description": "Next.js client component with 'use client' directive",
+    "body": [
+      "\"use client\";",
+      "",
+      "type Props = {",
+      "\t$2",
+      "};",
+      "",
+      "const ${1:ComponentName}: React.FC<Props> = ({$3}) => {",
+      "\treturn (",
+      "\t\t<div>$1$0</div>",
+      "\t);",
+      "};",
+      "",
+      "export default $1;"
+    ]
+  },
+  "Static Metadata": {
+    "prefix": "mr",
+    "description": "Next.js static metadata export",
+    "body": [
+      "import type { Metadata } from \"next\";",
+      "",
+      "export const metadata: Metadata = {",
+      "\ttitle: \"${1:Title}\",",
+      "\tdescription: \"${2:Description}\",",
+      "};",
+      "$0"
+    ]
+  },
+  "Generate Metadata": {
+    "prefix": "gmrf",
+    "description": "Next.js generateMetadata function for dynamic SEO",
+    "body": [
+      "import type { Metadata } from \"next\";",
+      "",
+      "type Props = {",
+      "\tparams: Promise<{ ${1:slug}: string }>;",
+      "};",
+      "",
+      "export async function generateMetadata({ params }: Props): Promise<Metadata> {",
+      "\tconst { ${2:slug} } = await params;",
+      "",
+      "\treturn {",
+      "\t\ttitle: $2,",
+      "\t\tdescription: \"$0\",",
+      "\t};",
+      "}"
+    ]
+  },
+  "Generate Static Params": {
+    "prefix": "gsp",
+    "description": "Next.js generateStaticParams function",
+    "body": [
+      "export async function generateStaticParams() {",
+      "\t$2",
+      "\treturn [",
+      "\t\t{ ${1:slug}: \"value\" },",
+      "\t];",
+      "}",
+      "$0"
+    ]
+  },
+  "Loading Component": {
+    "prefix": "ldc",
+    "description": "Next.js loading component",
+    "body": [
+      "export default function Loading() {",
+      "\treturn (",
+      "\t\t<div>${1:Loading...}</div>",
+      "\t);",
+      "}",
+      "$0"
+    ]
+  },
+  "Error Component": {
+    "prefix": "err",
+    "description": "Next.js error component with reset functionality",
+    "body": [
+      "\"use client\";",
+      "",
+      "import { useEffect } from \"react\";",
+      "",
+      "type Props = {",
+      "\terror: Error & { digest?: string };",
+      "\treset: () => void;",
+      "};",
+      "",
+      "export default function Error({ error, reset }: Props) {",
+      "\tuseEffect(() => {",
+      "\t\tconsole.error(error);",
+      "\t}, [error]);",
+      "",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t<h2>Something went wrong!</h2>",
+      "\t\t\t<button onClick={reset}>Try again</button>",
+      "\t\t\t$1",
+      "\t\t</div>",
+      "\t);",
+      "}",
+      "$0"
+    ]
+  },
+  "Error Boundary": {
+    "prefix": "ebc",
+    "description": "React 19 ErrorBoundary component",
+    "body": [
+      "\"use client\";",
+      "",
+      "import { ErrorBoundary } from \"react\";",
+      "",
+      "type Props = {",
+      "\tchildren: React.ReactNode;",
+      "};",
+      "",
+      "const ${1:ComponentName}ErrorBoundary: React.FC<Props> = ({ children }) => {",
+      "\treturn (",
+      "\t\t<ErrorBoundary",
+      "\t\t\tfallback={<div>${2:Something went wrong}</div>}",
+      "\t\t>",
+      "\t\t\t{children}",
+      "\t\t</ErrorBoundary>",
+      "\t);",
+      "};",
+      "",
+      "export default $1ErrorBoundary;",
+      "$0"
+    ]
+  },
+  "Page with Async searchParams": {
+    "prefix": "prcsp",
+    "description": "Next.js 15+ page with async params and searchParams",
+    "body": [
+      "type Props = {",
+      "\tparams: Promise<{ ${2:slug}: string }>;",
+      "\tsearchParams: Promise<{ [key: string]: string | string[] | undefined }>;",
+      "};",
+      "",
+      "export default async function ${1:ComponentName}({ params, searchParams }: Props) {",
+      "\tconst { $2 } = await params;",
+      "\tconst { ${3:query} } = await searchParams;",
+      "",
+      "\treturn (",
+      "\t\t<div>$1$0</div>",
+      "\t);",
+      "}"
+    ]
+  },
+  "React Arrow Function Component": {
+    "prefix": "rfc",
+    "description": "React arrow function component with named export",
+    "body": [
+      "export const ${1:ComponentName} = () => {",
+      "\treturn <>$0</>;",
+      "};"
+    ]
+  },
+  "React Arrow Function Component Default Export": {
+    "prefix": "rfce",
+    "description": "React arrow function component with default export",
+    "body": [
+      "const ${1:ComponentName} = () => {",
+      "\treturn <>$0</>;",
+      "};",
+      "",
+      "export default $1;"
+    ]
+  },
+  "React Arrow Function Component Default Export with Metadata": {
+    "prefix": "rfcem",
+    "description": "React arrow function component with default export and metadata",
+    "body": [
+      "import type { Metadata } from \"next\";",
+      "",
+      "export const metadata: Metadata = {",
+      "\ttitle: \"${2:Title}\",",
+      "};",
+      "",
+      "const ${1:ComponentName} = () => {",
+      "\treturn <>$0</>;",
+      "};",
+      "",
+      "export default $1;"
+    ]
+  },
+  "React Memo Component": {
+    "prefix": "rmc",
+    "description": "React memo wrapped component",
+    "body": [
+      "import { memo } from \"react\";",
+      "",
+      "export default memo(function ${1:ComponentName}() {",
+      "\treturn <>$0</>;",
+      "});"
+    ]
+  },
+  "React Native Function Component": {
+    "prefix": "rnf",
+    "description": "React Native function component",
+    "body": [
+      "import { View, Text } from \"react-native\";",
+      "",
+      "export default function ${1:ComponentName}() {",
+      "\treturn (",
+      "\t\t<View>",
+      "\t\t\t<Text>$0</Text>",
+      "\t\t</View>",
+      "\t);",
+      "}"
+    ]
+  },
+  "React Native Function Component with StyleSheet": {
+    "prefix": "rnfs",
+    "description": "React Native function component with StyleSheet",
+    "body": [
+      "import { StyleSheet, View, Text } from \"react-native\";",
+      "",
+      "export default function ${1:ComponentName}() {",
+      "\treturn (",
+      "\t\t<View>",
+      "\t\t\t<Text>$0</Text>",
+      "\t\t</View>",
+      "\t);",
+      "}",
+      "",
+      "const styles = StyleSheet.create({});"
+    ]
+  },
+  "React Native Arrow Function Component": {
+    "prefix": "rnfe",
+    "description": "React Native arrow function component with default export",
+    "body": [
+      "import { View, Text } from \"react-native\";",
+      "",
+      "const ${1:ComponentName} = () => {",
+      "\treturn (",
+      "\t\t<View>",
+      "\t\t\t<Text>$0</Text>",
+      "\t\t</View>",
+      "\t);",
+      "};",
+      "",
+      "export default $1;"
+    ]
+  },
+  "React Native Arrow Function Component with StyleSheet": {
+    "prefix": "rnfes",
+    "description": "React Native arrow function component with StyleSheet",
+    "body": [
+      "import { View, Text } from \"react-native\";",
+      "",
+      "const ${1:ComponentName} = () => {",
+      "\treturn (",
+      "\t\t<View>",
+      "\t\t\t<Text>$0</Text>",
+      "\t\t</View>",
+      "\t);",
+      "};",
+      "",
+      "export default $1;",
+      "",
+      "const styles = StyleSheet.create({});"
+    ]
+  }
+}

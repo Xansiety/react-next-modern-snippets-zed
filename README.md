@@ -14,15 +14,62 @@ the name once and it mirrors everywhere `$1` is used, same as before.
 
 ## Snippets
 
-See [snippets/snippets.json](./snippets/snippets.json) for the full list.
-Prefixes match the original extension: `prc`, `prcm`, `prcfc`, `prca`,
-`prch`, `lmrc`, `lrc`, `crc`, `mr`, `gmrf`, `gsp`, `ldc`, `err`, `ebc`,
-`prcsp`, `rfc`, `rfce`, `rfcem`, `rmc`, `rnf`, `rnfs`, `rnfe`, `rnfes`.
+### React
+
+| Prefix  | Name                           | Description                                 |
+| ------- | ------------------------------ | -------------------------------------------- |
+| `prc`   | Page Component                 | Simple page component                        |
+| `prcfc` | Functional Component (FC)      | Arrow function with `React.FC<Props>`        |
+| `prca`  | Async Server Component         | Server component with async data fetching   |
+| `prch`  | Custom Hook                    | Hook with `useState` and `useEffect`         |
+| `crc`   | Client Component               | Component with `"use client"` directive      |
+| `rfc`   | Arrow Function Component       | Arrow function with named export             |
+| `rfce`  | Arrow Function Component (DE)  | Arrow function with default export           |
+| `rmc`   | Memo Component                 | Component wrapped with `memo()`              |
+| `ebc`   | Error Boundary                 | React 19 `ErrorBoundary` wrapper component   |
+
+### Next.js
+
+| Prefix  | Name                            | Description                                           |
+| ------- | -------------------------------- | ------------------------------------------------------ |
+| `lmrc`  | Layout with Metadata             | Layout component with `Metadata` export               |
+| `lrc`   | Layout without Metadata          | Layout component without metadata                     |
+| `mr`    | Static Metadata                  | Static `Metadata` export                               |
+| `gmrf`  | Generate Metadata                | `generateMetadata` function for dynamic SEO            |
+| `gsp`   | Generate Static Params           | `generateStaticParams` function                        |
+| `ldc`   | Loading Component                | Loading UI component                                   |
+| `err`   | Error Component                  | Error segment with reset functionality                 |
+| `prcsp` | Page with searchParams           | Async page with params and searchParams (Next.js 15+)  |
+| `prcm`  | Page Component with Metadata     | Page component with `Metadata` export                  |
+| `rfcem` | Arrow Function + Metadata (DE)   | Arrow function with default export and `Metadata`       |
+
+### React Native
+
+| Prefix  | Name                         | Description                                      |
+| ------- | ----------------------------- | -------------------------------------------------- |
+| `rnf`   | Function Component            | React Native function component                   |
+| `rnfs`  | Function Component + Styles   | React Native function with `StyleSheet`            |
+| `rnfe`  | Arrow Function Component      | React Native arrow function with default export    |
+| `rnfes` | Arrow Function + Styles       | React Native arrow function with `StyleSheet`       |
+
+Full snippet bodies live in [snippets/snippets.json](./snippets/snippets.json).
+
+## Usage
+
+Type a snippet prefix (e.g. `prc`) in a `.tsx` or `.jsx` file and press `Tab` to expand.
+
+### Tab Stops
+
+- **`$1`** — Component name. Type it once; every mirrored occurrence (declaration,
+  JSX, export) updates together, same linking behavior as VS Code.
+- **`$2`, `$3`** — Secondary fields like Props type contents, destructured params,
+  metadata values.
+- **`$0`** — Final cursor position after all tab stops are filled.
 
 ## Local development
 
 1. Open Zed → `zed: extensions` → **Install Dev Extension**.
-2. Select this folder (`next-modern-snippets-zed`).
+2. Select this folder (`react-next-modern-snippets-zed`).
 3. Open a `.tsx`/`.jsx` file and type a prefix, then press `Tab`.
 
 ## Publishing
